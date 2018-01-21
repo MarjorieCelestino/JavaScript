@@ -88,3 +88,4 @@ how_many_elements is opitional and refers to the number of elements that should 
 ex.: array= [1, 2, 4, 7];
 array.slice(1, 2, 10, 11); replaces the elements starting from the index.
 [1, 10, 11, 7]
+*/
