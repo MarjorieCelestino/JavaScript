@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SlideShow</title>
+
+	<script type="text/javascript">
+		
+		var pictures = ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Augochlorella_aurata_Female.jpg/800px-Augochlorella_aurata_Female.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Bombus_bimaculatus1.jpg/800px-Bombus_bimaculatus1.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Augochloropsis_metallica_Female.jpg/800px-Augochloropsis_metallica_Female.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Caupolicana_fulvicollis_f.jpg/800px-Caupolicana_fulvicollis_f.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cadeguala_occidentalis_f.jpg/800px-Cadeguala_occidentalis_f.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Euglossa_analis.jpg/800px-Euglossa_analis.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Megachile_semirufa_Female.jpg/800px-Megachile_semirufa_Female.jpg"];
+		
+		function load(){
+			//alert("loaded!");
+			//document.getElementById('image_canvas').getElementsByTagName('img')[0].src = pictures[0];
+			changePic(0);
+		}
+
+		function changePic(n){
+			document.getElementById('image_canvas').getElementsByTagName('img')[0].src = pictures[n % pictures.length];
+			setTimeout(function(){
+				changePic(n+1)
+			}, 5000);
+		} 
+
+	</script>
+</head>
+<body onload="load();">
+
+	<h1 id="myHeader">
+		My pictures
+	</h1>
+
+	<div id="image_canvas" style="width: 750px; height: 497px; margin: 0 auto">
+		<img src="" style = "height: 100%; width: 100%"/>
+	</div>
+
+</body>
+</html>
