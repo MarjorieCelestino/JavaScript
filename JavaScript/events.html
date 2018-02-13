@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script type="text/javascript">
+
+		function changeBgColor(event){
+			this.style.backgroundColor = "blue";
+			event.stopPropagation(); //stops the event from propagating in the first callback function
+		}
+
+		function load(){
+			document.getElementById('id_name').onclick = changeBgColor;
+			document.getElementById('text01').onclick = changeBgColor;
+			document.getElementById('text02').onclick = changeBgColor;
+			document.getElementById('google_link').addEventListener("click", function(){
+				alert("Nope! Chuck Testa.");
+				event.preventDefault(); //prevents the default action associated with the event
+			})
+		}
+		
+//First argument is the name of the event, second argument is the function itself.
+		window.addEventListener("load", load);
+		window.addEventListener("click", function(){
+			console.log("Clicked!");
+		});
+
+	</script>
+</head>
+<body>
+	<div>
+		<span id="text01">This is the first part of the text. </span><span id="text02">And this is the second part.</span>
+		<form>
+			<input type="text" id="id_name"/>
+		</form>
+		<a id="google_link" href="http://www.google.com">Go to Google</a>
+	</div>
+</body>
+</html>

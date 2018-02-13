@@ -14,6 +14,7 @@
 		}
 
 		function changePic(n){
+			//n % pictures.length - so it goes back to the first image
 			document.getElementById('image_canvas').getElementsByTagName('img')[0].src = pictures[n % pictures.length];
 			setTimeout(function(){
 				changePic(n+1)
