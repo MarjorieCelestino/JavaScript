@@ -15,6 +15,7 @@
 			document.getElementById('text02').onclick = changeBgColor;
 			document.getElementById('google_link').addEventListener("click", function(){
 				alert("Nope! Chuck Testa.");
+				console.log(event.target); // -> <a id="google_link" href="http://www.google.com">Go to Google</a>
 				event.preventDefault(); //prevents the default action associated with the event
 			})
 		}
