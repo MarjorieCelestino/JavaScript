@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SlideShow</title>
+
+	<script type="text/javascript">
+		//works only on firefox, because chrome doesn't work with local file access
+		var pictures = [];
+
+		function load(){
+			getPictures();
+		}
+		
+		function getPictures(){
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", "pictures.json", true); //(http method request, url to which the request will be sent to, if the request is to be sent asynchronously)
+
+			//callback function which needs to be called when the request object has caught the content from the server
+			xmlhttp.onload = function(event){
+				pictures = JSON.parse(xmlhttp.responseText);
+				changePic(0);
+			}
+
+			// callback function in case there is an error
+			xmlhttp.onerror = function(event){
+				alert("An error has ocurred.");
+			}
+
+			//responsable for making the request
+			xmlhttp.send();
+		}
+
+		function changePic(n){
+			//n % pictures.length - so it goes back to the first image
+			document.getElementById('image_canvas').getElementsByTagName('img')[0].src = pictures[n % pictures.length];
+			setTimeout(function(){
+				changePic(n+1)
+			}, 5000);
+		} 
+
+	</script>
+</head>
+<body onload="load();">
+
+	<h1 id="myHeader">
+		My pictures
+	</h1>
+
+	<div id="image_canvas" style="width: 750px; height: 497px; margin: 0 auto">
+		<img src="" style = "height: 100%; width: 100%"/>
+	</div>
+
+</body>
+</html>
